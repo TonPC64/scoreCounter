@@ -1,0 +1,122 @@
+<!doctype html>
+<html ng-app="todoApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+
+<body>
+    <div ng-controller="TodoListController as todoList">
+        
+        <div  ng-show="login==1">
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-4 col-xs-offset-4">
+                            <center><img id="logo" width="180" src="img/logo.png"></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-4">
+                    <center>
+                        <a href="/auth/facebook"><img id="login" width="320px" src="img/login.png"></a>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="container" ng-show="login==2">
+            <a ng-click="logout()"> Logout</a>
+            <div class="row">
+
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div> <center><img ng-src={{photo}} class="img-circle"> <br>
+                    <h2><font color="#FFFFFF">{{name}}<button ng-click="addPlayer({'name':name,'picture':{'data':{'url':photo}}})" class="btn btn-success glyphicon glyphicon-plus"></button></font></h2>
+                    
+                    </center>
+                    
+                    </div>
+                    <div class="input-group" style="margin:15px;">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                        <input type="text" ng-model="text" class="form-control" aria-label="Search" ng-change="todoList.post()">
+                        <div class="input-group-btn">
+                        </div>
+                    </div>
+                    <div  class="col-xs-10">
+                    <div ng-repeat="player in players">
+                        <div class="col-xs-1" align="center">
+                        
+                            <img ng-src={{player.picture}} class="img-circle" style="width:50px">
+                            <button ng-click="delPlayer($index)" class="btn btn-danger glyphicon glyphicon-trash"></button>
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-xs-2">
+                      <img src="img/start.png" width="100%" ng-click="start()">
+                    </div>
+                    <div class="col-xs-12">
+                    <div ng-repeat="searchdata in datasearch">
+                        <div style="margin:15px">
+                            <button ng-click="addPlayer(searchdata)" class="btn btn-success glyphicon glyphicon-plus"></button>
+                            <img ng-src={{searchdata.picture.data.url}} class="img-circle" style="width:50px">
+                            <font color="#FFFFFF">{{searchdata.name}} </font>
+                            
+                        </div>
+                    </div>
+                    </div>
+                    <center>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+
+        <div ng-show= "login==3" class="container">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <center>
+            <img src="../img/logo.png" width="180" style="margin-top: 15px  ">
+            <br><br><br>
+          </center>
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">.</h3>
+                </div>
+                <div ng-repeat="player in players">
+                <div class="panel-body" align="center">
+                  <div class="col-xs-3">
+                    <img ng-src={{player.picture}} class="img-circle" style="width:50px">
+                  </div>
+                  <div class="col-xs-3" style="font-size:20px;">{{player.name}}</div>
+                  
+                  <div class="col-xs-3" style="font-size:30px;">
+                    {{player.score}}
+                  </div>
+                  <div class="col-xs-1">
+                    <button type="button" class="btn btn-success glyphicon glyphicon-plus" 
+                        style="height:50px;width:50px;" ng-click="addscore($index)"></button>
+                  </div>
+                </div>
+                </div>
+                
+                </div>
+
+              </div>
+              <center><img src="img/home.png" ng-click="endgame()"></center>
+        </div>
+      </div>
+    </div>
+
+    </div>
+</body>
+
+</html>
