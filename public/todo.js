@@ -41,6 +41,10 @@ angular.module('todoApp', [])
       $scope.players[index].score++
     }
 
+    $scope.delscore = function (index) {
+      $scope.players[index].score--
+    }
+
     $scope.endgame = function () {
       $scope.players = []
       $scope.login = 2

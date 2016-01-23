@@ -19,7 +19,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "standard": {
-    "globals": ["angular"]
+    "globals": [
+      "angular"
+    ]
   },
   "repository": {
     "type": "git",
