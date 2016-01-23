@@ -1,0 +1,34 @@
+{
+  "name": "score-counter",
+  "version": "1.0.0",
+  "description": "passportJs # scoreCounter",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "fbgraph": "^1.1.0",
+    "mongoose": "^4.3.6",
+    "mongoose-findorcreate": "^0.1.2",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.0.0"
+  },
+  "devDependencies": {
+    "standard": "^5.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "standard": {
+    "globals": ["angular"]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n9ti/scoreCounter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n9ti/scoreCounter/issues"
+  },
+  "homepage": "https://github.com/n9ti/scoreCounter#readme"
+}
